@@ -1,20 +1,20 @@
-package com.company;
+package com.seliverstov.calculator;
 
 import java.util.Stack;
 
 public class ReverseExpression {
 
 
-    public static  String transform(String Exp) throws PriorityException {
+    public static  String transform(String exp) {
         String calculation = "";
         Stack<Character> stack = new Stack<>();
         int priority;
 
-        for (int i = 0; i < Exp.length(); i++) {
-            priority = Priority.prioritization(Exp.charAt(i));
+        for (char ch: exp.toCharArray()) {
+            priority = Priority.prioritization(ch);
 
             if (priority == 0) {
-                calculation += Exp.charAt(i);
+                calculation += ch;
             }
 
             if (priority >= 2) {
@@ -25,7 +25,7 @@ public class ReverseExpression {
                         calculation += stack.pop();
                     } else break;
                 }
-                stack.push(Exp.charAt(i));
+                stack.push(ch);
             }
         }
         while (!stack.empty()) {

@@ -1,16 +1,13 @@
-package com.company;
+package com.seliverstov.calculator;
 
 import java.util.Stack;
 
 public class ReverseAnswer {
-
-
     public static double answer(String ans) {
         String operand = "";
         Stack<Double> stack = new Stack<>();
-
-
         int priority;
+
         for (int i = 0; i < ans.length(); i++) {
             priority = Priority.prioritization(ans.charAt(i));
 
@@ -31,20 +28,8 @@ public class ReverseAnswer {
                 double a = stack.pop();
                 double b = stack.pop();
 
-
-                if (ans.charAt(i) == '+') {
-                    stack.push(b + a);
-                }
-                if (ans.charAt(i) == '-') {
-                    stack.push(b - a);
-                }
-                if (ans.charAt(i) == '*') {
-                    stack.push(b * a);
-                }
-                if (ans.charAt(i) == '/') {
-                    stack.push(b / a);
-                    }
-
+                MathOperation calc = new MathOperation(b,a,ans.charAt(i));
+                stack.push(calc.makeCalculation());
                 }
             }
         return stack.pop();

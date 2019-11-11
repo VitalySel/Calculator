@@ -1,8 +1,7 @@
-package com.company;
+package com.seliverstov.calculator;
 
 public  class Priority {
     public static int prioritization(char input){
-
             if (input == '*' || input == '/') {
                 return 3;
             } else if (input == '+' || input == '-') {
@@ -12,14 +11,3 @@ public  class Priority {
     }
 }
 
-class PriorityException extends Exception{
-    private char symbol;
-    public char getSymbol() {
-        return symbol;
-    }
-
-    public PriorityException(String message, char symbol) {
-        super(message);
-        this.symbol = symbol;
-    }
-}
