@@ -6,29 +6,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MathOperation {
+    public static final Map<Character, Operation> OPERATION_MAP = new HashMap<>();
 
-    private char operation;
-    private double operandOne;
-    private double operandTwo;
-    private Map<Character, Operation> operationMap = new HashMap<>();
-
-    public MathOperation(double operandOne, double operandTwo, char operation) {
-        this.operandOne = operandOne;
-        this.operandTwo = operandTwo;
-        this.operation = operation;
-
-        operationMap.put('+', new Addition());
-        operationMap.put('-', new Subtraction());
-        operationMap.put('*', new Multiplication());
-        operationMap.put('/', new Division());
-    }
-
-    public double makeCalculation() {
-        Operation operationMapValue = null;
-
-        operationMap.containsKey(operation);
-        operationMapValue = operationMap.get(operation);
-
-        return operationMapValue.result(operandOne, operandTwo);
+    static {
+        OPERATION_MAP.put('+', new Addition(2));
+        OPERATION_MAP.put('-', new Subtraction(2));
+        OPERATION_MAP.put('*', new Multiplication(3));
+        OPERATION_MAP.put('/', new Division(3));
     }
 }

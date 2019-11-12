@@ -1,5 +1,6 @@
 package com.seliverstov.calculator.operations;
 
 public interface Operation {
-    double result (double b,double a);
+    Integer getP();
+    double result(double b, double a);
 }
