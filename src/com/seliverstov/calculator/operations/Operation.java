@@ -1,6 +1,9 @@
 package com.seliverstov.calculator.operations;
 
 public interface Operation {
-    Integer getP();
-    double result(double b, double a);
+    Integer getPriority();
+
+    default double result(double b, double a) {
+        return 0;
+    }
 }

@@ -2,9 +2,6 @@ package com.seliverstov.calculator;
 
 import com.seliverstov.calculator.operations.*;
 
-
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Stack;
 
 public class ReverseAnswer {
@@ -21,7 +18,6 @@ public class ReverseAnswer {
                 while (ans.charAt(i) != ' ' && Character.isDigit(ans.charAt(i))) {
                     operand += ans.charAt(i);
                     i++;
-                    if (i == ans.length()) break;
                 }
                 stack.push(Double.parseDouble(operand));
                 i--;
@@ -29,8 +25,9 @@ public class ReverseAnswer {
             }
 
                 if(MathOperation.OPERATION_MAP.containsKey(ans.charAt(i))) {
-                    priority = MathOperation.OPERATION_MAP.get(ans.charAt(i)).getP();
+                    priority = MathOperation.OPERATION_MAP.get(ans.charAt(i)).getPriority();
                     if (priority >= 2) {
+
                         double a = stack.pop();
                         double b = stack.pop();
 
@@ -38,7 +35,6 @@ public class ReverseAnswer {
                     }
                 }
         }
-
         return stack.pop();
     }
 }

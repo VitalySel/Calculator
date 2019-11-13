@@ -1,15 +1,15 @@
 package com.seliverstov.calculator.operations;
 
 public class Subtraction implements Operation {
-    private Integer p;
+    private Integer priority;
 
-    public Subtraction(Integer p) {
-        this.p =p;
+    public Subtraction(Integer priority) {
+        this.priority =priority;
     }
 
     @Override
-    public Integer getP() {
-        return p;
+    public Integer getPriority() {
+        return priority;
     }
 
     @Override

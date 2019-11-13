@@ -1,19 +1,15 @@
 package com.seliverstov.calculator.operations;
 
-public class Addition implements Operation {
+public class RightBracket implements Operation {
+
     private Integer priority;
 
-    public Addition(Integer priority) {
+    public RightBracket(Integer priority) {
         this.priority = priority;
     }
 
     @Override
     public Integer getPriority() {
         return priority;
-    }
-
-    @Override
-    public double result(double b, double a) {
-        return b+a;
     }
 }

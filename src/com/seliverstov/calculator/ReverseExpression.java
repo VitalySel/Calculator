@@ -14,11 +14,23 @@ public class ReverseExpression {
                 calculation += ch;
             }
             if (MathOperation.OPERATION_MAP.containsKey(ch)) {
-                priority = MathOperation.OPERATION_MAP.get(ch).getP();;
+                priority = MathOperation.OPERATION_MAP.get(ch).getPriority();
+
+                if (priority == 0) {
+                    while(MathOperation.OPERATION_MAP.get(stack.peek()).getPriority() != 1) {
+                        calculation += stack.pop();
+                    }
+                    stack.pop();
+                }
+
+                if (priority == 1) {
+                    stack.push(ch);
+                }
+
                 if (priority >= 2) {
                     calculation += ' ';
                     while (!stack.empty()) {
-                        if (MathOperation.OPERATION_MAP.get(stack.peek()).getP() >= priority)
+                        if (MathOperation.OPERATION_MAP.get(stack.peek()).getPriority() >= priority)
                         {
                             calculation += stack.pop();
                         } else break;

@@ -2,15 +2,15 @@ package com.seliverstov.calculator.operations;
 
 public class Division implements Operation {
 
-    private Integer p;
+    private Integer priority;
 
-    public Division(Integer p) {
-        this.p = p;
+    public Division(Integer priority) {
+        this.priority = priority;
     }
 
     @Override
-    public Integer getP() {
-        return p;
+    public Integer getPriority() {
+        return priority;
     }
 
     @Override
