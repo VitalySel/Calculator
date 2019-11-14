@@ -1,5 +1,7 @@
 package com.seliverstov.calculator.operations;
 
+import java.math.BigDecimal;
+
 public class Subtraction implements Operation {
     private Integer priority;
 

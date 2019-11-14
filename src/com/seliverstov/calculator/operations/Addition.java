@@ -1,5 +1,7 @@
 package com.seliverstov.calculator.operations;
 
+import java.math.BigDecimal;
+
 public class Addition implements Operation {
     private Integer priority;
 
@@ -12,7 +14,6 @@ public class Addition implements Operation {
         return priority;
     }
 
-    @Override
     public double result(double b, double a) {
         return b+a;
     }

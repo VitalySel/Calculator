@@ -9,8 +9,11 @@ public class ReverseExpression {
         Stack<Character> stack = new Stack<>();
         int priority;
 
-        for (char ch: exp.toCharArray()) {
-            if (Character.isDigit(ch)) {
+        exp = exp.replaceAll(",",".");
+        String correctedExpression = MathOperation.correct(exp);
+
+        for (char ch: correctedExpression.toCharArray()) {
+            if (Character.isDigit(ch) || ch == '.') {
                 calculation += ch;
             }
             if (MathOperation.OPERATION_MAP.containsKey(ch)) {

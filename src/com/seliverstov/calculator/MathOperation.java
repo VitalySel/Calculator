@@ -16,4 +16,17 @@ public class MathOperation {
         OPERATION_MAP.put('*', new Multiplication(3));
         OPERATION_MAP.put('/', new Division(3));
     }
+
+    public static String correct (String exp) {
+        String correctedExp = new String();
+        for (int i = 0; i < exp.length(); i++) {
+            char sym = exp.charAt(i);
+            if (sym == '-') {
+                if (i == 0) correctedExp += '0';
+                 else if (exp.charAt(i - 1) == '(') correctedExp += '0';
+                }
+                correctedExp += sym;
+            }
+        return correctedExp;
+    }
 }

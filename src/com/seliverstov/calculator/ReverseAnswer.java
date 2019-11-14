@@ -1,21 +1,18 @@
 package com.seliverstov.calculator;
 
-import com.seliverstov.calculator.operations.*;
-
 import java.util.Stack;
 
 public class ReverseAnswer {
 
-    public static double answer(String ans) {
+    public static Double answer(String ans) {
         String operand = "";
         Stack<Double> stack = new Stack<>();
         Integer priority ;
 
         for (int i = 0; i < ans.length(); i++) {
-
             if (ans.charAt(i) == ' ') continue;
-            if (Character.isDigit(ans.charAt(i))) {
-                while (ans.charAt(i) != ' ' && Character.isDigit(ans.charAt(i))) {
+            if (Character.isDigit(ans.charAt(i)) || ans.charAt(i) == '.') {
+                while (ans.charAt(i) != ' ' && (Character.isDigit(ans.charAt(i)) || ans.charAt(i) == '.')) {
                     operand += ans.charAt(i);
                     i++;
                 }

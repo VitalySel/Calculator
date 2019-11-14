@@ -1,9 +1,10 @@
 package com.seliverstov.calculator.operations;
 
+import java.math.BigDecimal;
+
 public class Division implements Operation {
 
     private Integer priority;
-
     public Division(Integer priority) {
         this.priority = priority;
     }
