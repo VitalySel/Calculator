@@ -1,6 +1,7 @@
 package com.seliverstov.calculator.operations;
 
 import java.math.BigDecimal;
+import java.math.MathContext;
 
 public class Subtraction implements Operation {
     private Integer priority;
@@ -15,7 +16,7 @@ public class Subtraction implements Operation {
     }
 
     @Override
-    public double result(double b, double a) {
-        return b-a;
+    public BigDecimal result(BigDecimal b, BigDecimal a) {
+        return b.subtract(a, MathContext.DECIMAL128);
     }
 }

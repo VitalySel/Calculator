@@ -1,12 +1,13 @@
 package com.seliverstov.calculator;
 
+import java.math.BigDecimal;
 import java.util.Stack;
 
 public class ReverseAnswer {
 
-    public static Double answer(String ans) {
+    public static BigDecimal answer(String ans) {
         String operand = "";
-        Stack<Double> stack = new Stack<>();
+        Stack<BigDecimal> stack = new Stack<>();
         Integer priority ;
 
         for (int i = 0; i < ans.length(); i++) {
@@ -16,7 +17,7 @@ public class ReverseAnswer {
                     operand += ans.charAt(i);
                     i++;
                 }
-                stack.push(Double.parseDouble(operand));
+                stack.push(BigDecimal.valueOf(Double.parseDouble(operand)));
                 i--;
                 operand = "";
             }
@@ -25,8 +26,8 @@ public class ReverseAnswer {
                     priority = MathOperation.OPERATION_MAP.get(ans.charAt(i)).getPriority();
                     if (priority >= 2) {
 
-                        double a = stack.pop();
-                        double b = stack.pop();
+                        BigDecimal a = stack.pop();
+                        BigDecimal b = stack.pop();
 
                         stack.push(MathOperation.OPERATION_MAP.get(ans.charAt(i)).result(b, a));
                     }

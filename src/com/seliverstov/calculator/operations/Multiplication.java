@@ -1,6 +1,7 @@
 package com.seliverstov.calculator.operations;
 
 import java.math.BigDecimal;
+import java.math.MathContext;
 
 public class Multiplication implements Operation {
 
@@ -16,7 +17,7 @@ public class Multiplication implements Operation {
     }
 
     @Override
-    public double result(double b, double a) {
-        return b*a;
+    public BigDecimal result(BigDecimal b, BigDecimal a) {
+        return b.multiply(a, MathContext.DECIMAL128);
     }
 }

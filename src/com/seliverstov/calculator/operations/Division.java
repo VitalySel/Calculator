@@ -1,10 +1,12 @@
 package com.seliverstov.calculator.operations;
 
 import java.math.BigDecimal;
+import java.math.MathContext;
 
 public class Division implements Operation {
 
     private Integer priority;
+
     public Division(Integer priority) {
         this.priority = priority;
     }
@@ -15,8 +17,8 @@ public class Division implements Operation {
     }
 
     @Override
-    public double result(double b, double a) {
-        return b/a;
+    public BigDecimal result(BigDecimal b, BigDecimal a) {
+        return b.divide(a, MathContext.DECIMAL128);
     }
 }
 

@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 public interface Operation {
     Integer getPriority();
 
-    default double result(double b, double a) {
-        return 0;
+    default BigDecimal result(BigDecimal b, BigDecimal a) {
+        return null;
     }
 }
