@@ -14,7 +14,7 @@ public class ReverseExpression {
 
         for (char ch: correctedExpression.toCharArray()) {
 
-            if (MathOperation.OPERATION_MAP.containsKey(ch) || Character.isDigit(ch) || ch == '.') {
+            if (MathOperation.OPERATION_MAP.containsKey(ch) || Character.isDigit(ch) || ch == '.' || ch == ' ') {
 
                 if (Character.isDigit(ch) || ch == '.') calculation += ch;
                 if (MathOperation.OPERATION_MAP.containsKey(ch)) {
