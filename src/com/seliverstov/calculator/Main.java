@@ -6,6 +6,7 @@ package com.seliverstov.calculator;
 Срок - 10 дней. */
 
 import java.util.Scanner;
+import java.util.Stack;
 
 public class Main {
 
@@ -17,11 +18,10 @@ public class Main {
 
             try {
                 String expressionInput = sc.nextLine();
-                String expressionOutput = ReverseExpression.transform(expressionInput);
+                Stack<Object> expressionOutput = ReverseExpression.transform(expressionInput);
                 System.out.println("Answer Expression - " + ReverseAnswer.answer(expressionOutput));
 
             } catch (Exception exp) {
-
                 System.out.println(exp.getMessage());
             }
         }
