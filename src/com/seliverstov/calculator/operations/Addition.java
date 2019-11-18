@@ -3,12 +3,10 @@ package com.seliverstov.calculator.operations;
 import java.math.BigDecimal;
 import java.math.MathContext;
 
-public class Addition implements Operation {
-
-    private Integer priority;
+public class Addition extends Operation {
 
     public Addition(Integer priority) {
-        this.priority = priority;
+        super(priority);
     }
 
     @Override

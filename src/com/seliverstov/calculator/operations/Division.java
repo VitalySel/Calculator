@@ -3,12 +3,10 @@ package com.seliverstov.calculator.operations;
 import java.math.BigDecimal;
 import java.math.MathContext;
 
-public class Division implements Operation {
-
-    private Integer priority;
+public class Division extends Operation {
 
     public Division(Integer priority) {
-        this.priority = priority;
+        super(priority);
     }
 
     @Override

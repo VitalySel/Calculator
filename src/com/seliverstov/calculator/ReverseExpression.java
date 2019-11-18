@@ -12,12 +12,10 @@ public class ReverseExpression {
         int priority;
 
         exp = exp.replaceAll(",",".");
-        String correctedExpression = MathOperation.correct(exp);
+        String correctedExpression = Service.correct(exp);
 
         for (char ch: correctedExpression.toCharArray()) {
-
-            if (MathOperation.OPERATION_MAP.containsKey(ch) || Character.isDigit(ch) || ch == '.' || ch == ' ') {
-
+            if (Service.check(ch)) {
                 if (Character.isDigit(ch) || ch == '.') calculation += ch;
                 if (MathOperation.OPERATION_MAP.containsKey(ch)) {
                     priority = MathOperation.OPERATION_MAP.get(ch).getPriority();

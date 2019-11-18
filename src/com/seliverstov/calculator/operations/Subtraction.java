@@ -3,11 +3,10 @@ package com.seliverstov.calculator.operations;
 import java.math.BigDecimal;
 import java.math.MathContext;
 
-public class Subtraction implements Operation {
-    private Integer priority;
+public class Subtraction extends Operation{
 
     public Subtraction(Integer priority) {
-        this.priority =priority;
+        super(priority);
     }
 
     @Override

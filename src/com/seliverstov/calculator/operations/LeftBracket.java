@@ -1,11 +1,9 @@
 package com.seliverstov.calculator.operations;
 
-public class LeftBracket implements Operation {
-
-    private Integer priority;
+public class LeftBracket extends Operation {
 
     public LeftBracket(Integer priority) {
-        this.priority = priority;
+        super(priority);
     }
 
     @Override

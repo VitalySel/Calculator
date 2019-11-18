@@ -3,12 +3,10 @@ package com.seliverstov.calculator.operations;
 import java.math.BigDecimal;
 import java.math.MathContext;
 
-public class Multiplication implements Operation {
-
-    private Integer priority;
+public class Multiplication extends Operation {
 
     public Multiplication(Integer priority) {
-        this.priority = priority;
+        super(priority);
     }
 
     @Override
