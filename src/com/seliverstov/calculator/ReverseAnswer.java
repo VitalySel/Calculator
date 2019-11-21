@@ -1,5 +1,6 @@
 package com.seliverstov.calculator;
 
+import com.seliverstov.calculator.factory.OperationFactory;
 import com.seliverstov.calculator.operations.Operation;
 
 import java.math.BigDecimal;
@@ -14,7 +15,7 @@ public class ReverseAnswer {
                 if (obj.peek() instanceof BigDecimal) {
                     stack.push((BigDecimal) obj.pop());
                 }
-                if (MathOperation.OPERATION_MAP.containsValue(obj.peek())) {
+                else {
                     Operation operation = (Operation) obj.pop();
                     BigDecimal a = stack.pop();
                     BigDecimal b = stack.pop();
