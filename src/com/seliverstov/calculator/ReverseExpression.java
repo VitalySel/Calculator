@@ -2,6 +2,7 @@ package com.seliverstov.calculator;
 
 import com.seliverstov.calculator.factory.OperationFactory;
 import com.seliverstov.calculator.operations.Operation;
+import com.seliverstov.calculator.operations.RightBracket;
 
 import java.util.*;
 
@@ -25,7 +26,7 @@ public class ReverseExpression {
 
                     switch (priority) {
                         case 0:
-                            while (OperationFactory.createOperation((Character)stack.peek()).getPriority() != 1) {
+                            while (!operation.checkPriority((Character) stack.peek())) {
                                 calculation += ' ';
                                 calculation += stack.pop();
                             }

@@ -1,5 +1,7 @@
 package com.seliverstov.calculator.operations;
 
+import com.seliverstov.calculator.factory.OperationFactory;
+
 public class RightBracket extends Operation {
     //static final  Integer PRIORITY = 1;
 
@@ -20,5 +22,10 @@ public class RightBracket extends Operation {
     @Override
     public Operation copy() {
         return new RightBracket(this);
+    }
+
+    @Override
+    public  Boolean checkPriority(Character ch) {
+        return OperationFactory.createOperation(ch).getPriority() == OperationFactory.createOperation('(').priority;
     }
 }

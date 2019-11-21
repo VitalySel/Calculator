@@ -24,7 +24,7 @@ public class Service {
     }
 
     public static boolean check(char ch) {
-        return OperationFactory.OPERATION_MAP.containsKey(ch) || Character.isDigit(ch) || ch == ' ' || ch == '.';
+        return OperationFactory.OPERATION_MAP.containsKey(ch) || Character.isDigit(ch) || ch == '.';
     }
 
     public static Stack<Object> adding (String exp) {

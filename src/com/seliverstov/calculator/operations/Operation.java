@@ -21,4 +21,6 @@ public abstract class Operation {
 
     public abstract Operation copy();
 
+    public Boolean checkPriority(Character ch){ return true; }
+
 }
