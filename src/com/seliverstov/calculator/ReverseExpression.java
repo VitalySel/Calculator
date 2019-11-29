@@ -1,8 +1,8 @@
 package com.seliverstov.calculator;
 
+import com.seliverstov.calculator.builder.Number;
 import com.seliverstov.calculator.factory.OperationFactory;
 import com.seliverstov.calculator.operations.Operation;
-import com.seliverstov.calculator.operations.RightBracket;
 
 import java.util.*;
 
@@ -12,15 +12,20 @@ public class ReverseExpression {
         String calculation = "";
         Stack<Object> stack = new Stack<>();
         int priority;
+        Number.Biulder num = new Number.Biulder();
+
         String correctedExpression = Service.correct(exp);
 
         for (char ch: correctedExpression.toCharArray()) {
             if (Service.check(ch)) {
 
                 if (Character.isDigit(ch) || ch == '.') {
-                    calculation += ch;
+                        num.withNumber(ch).build();
 
                 } else {
+                    calculation += num.build();
+                    num = new Number.Biulder();
+
                     Operation operation = OperationFactory.createOperation(ch);
                     priority = operation.getPriority();
 
@@ -54,7 +59,12 @@ public class ReverseExpression {
                 throw new Exception("invalid character : "+ ch);
             }
         }
+
         while (!stack.empty()) {
+
+            calculation += num.build();
+            num = new Number.Biulder();
+
             calculation += ' ';
             calculation += stack.pop();
     }
