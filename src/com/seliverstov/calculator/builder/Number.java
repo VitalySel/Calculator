@@ -1,5 +1,7 @@
 package com.seliverstov.calculator.builder;
 
+import java.math.BigDecimal;
+
 public class Number {
     private String number = "";
 
@@ -15,12 +17,8 @@ public class Number {
             return this;
         }
 
-        public String build() {
-            return newNumber.number;
+        public BigDecimal build() {
+            return BigDecimal.valueOf(Double.parseDouble(newNumber.number));
         }
-
-      /*  public String readNumber(Character ch) {
-            return "" + ch;
-        }*/
     }
 }

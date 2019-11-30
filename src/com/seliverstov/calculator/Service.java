@@ -2,7 +2,6 @@ package com.seliverstov.calculator;
 
 import com.seliverstov.calculator.factory.OperationFactory;
 
-import java.math.BigDecimal;
 import java.util.*;
 
 
@@ -27,19 +26,13 @@ public class Service {
         return OperationFactory.OPERATION_MAP.containsKey(ch) || Character.isDigit(ch) || ch == '.';
     }
 
-    public static Stack<Object> adding (String exp) {
+    public static Stack<Object> adding (List<Object> temp) {
         Stack<Object> objects = new Stack<>();
-        List<String> el = new ArrayList<>(Arrays.asList(exp.split(" ")));
-        Collections.reverse(el);
+        Collections.reverse(temp);
 
-        for (String ch : el) {
-            if(ch.length()==1 && OperationFactory.OPERATION_MAP.containsKey(ch.charAt(0))){
-                objects.push(OperationFactory.createOperation(ch.charAt(0)));
-            }
-            else{
-                objects.push(BigDecimal.valueOf(Double.parseDouble(ch)));
-            }
-        }
+       for (Object element : temp) {
+           objects.push(element);
+       }
         return objects;
     }
 }
