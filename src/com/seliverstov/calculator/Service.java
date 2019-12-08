@@ -9,6 +9,8 @@ public class Service {
 
     public static String correct(String exp) {
         exp = exp.replaceAll(",", ".");
+        exp = exp.replaceAll(" ","");
+
 
         String correctedExp = new String();
         for (int i = 0; i < exp.length(); i++) {

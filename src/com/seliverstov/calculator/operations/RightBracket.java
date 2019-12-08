@@ -25,7 +25,8 @@ public class RightBracket extends Operation {
     }
 
     @Override
-    public  Boolean checkPriority(Character ch) {
-        return OperationFactory.createOperation(ch).getPriority() == OperationFactory.createOperation('(').priority;
+    public  Boolean checkPriority(Object obj) {
+        Operation operation = (Operation) obj;
+        return operation.getPriority() == OperationFactory.createOperation('(').priority;
     }
 }

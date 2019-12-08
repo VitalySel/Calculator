@@ -18,7 +18,13 @@ public class Number {
         }
 
         public BigDecimal build() {
-            return BigDecimal.valueOf(Double.parseDouble(newNumber.number));
+            {
+                if (newNumber.number.isEmpty()) {
+                    return null;
+                } else
+                    return BigDecimal.valueOf(Double.parseDouble(newNumber.number));
+            }
         }
     }
 }
+

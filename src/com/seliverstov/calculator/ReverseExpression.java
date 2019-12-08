@@ -28,8 +28,10 @@ public class ReverseExpression {
                         if ( currentIndex == correctedExpression.length()-1)
                             calcObject.add(num.build());
                 } else {
-                    calcObject.add(num.build());
-                    num = new Number.Biulder();
+                    if (num.build() != null) {
+                        calcObject.add(num.build());
+                        num = new Number.Biulder();
+                    }
                     calcObject.add(OperationFactory.createOperation(ch));
                 }
             } else {
@@ -46,7 +48,7 @@ public class ReverseExpression {
                 priority = operation.getPriority();
                 switch (priority) {
                     case 0:
-                        while (!operation.checkPriority((Character) stack.peek())) {
+                        while (!operation.checkPriority(stack.peek())) {
                             tempObject.add(stack.pop());
                         }
                         stack.pop();
@@ -57,7 +59,7 @@ public class ReverseExpression {
                     case 2:
                     case 3:
                         while (!stack.empty()) {
-                            Operation op = OperationFactory.createOperation((Character) stack.peek());
+                            Operation op = (Operation)stack.peek();
                             if (op.getPriority() >= priority){
                                 tempObject.add(stack.pop());
                             } else break;
